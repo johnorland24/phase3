@@ -7,12 +7,13 @@
     <link rel="stylesheet" href="style.css">
     <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
 </head>
-<body>
+<body>   
     <h1>Pokemon Images</h1>
     <div class="search-container">
         <input type="text" id="pokemonName" placeholder="Enter Pokemon Name">
         <button onclick="fetchData()"><i class='bx bx-search'></i></button>
     </div>
+    <span id="remove"></span>
     <img src="" alt="Pokemon" id="pokemonSprite" style="display: none;">
 
     <div id="pokemonContainer"></div>

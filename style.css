@@ -6,6 +6,56 @@ body {
 
     background-color:#282a36;
 }
+
+/* header {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+
+.menu-icon {
+    display: none;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/* Dropdown Menu Styles */
+/* .dropdown-menu {
+    display: none;
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    z-index: 1;
+}
+
+.dropdown-menu a {
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 5px 10px;
+}
+
+/* Responsive Styles */
+/*@media (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+    
+    .dropdown-menu {
+        position: static;
+        display: block;
+        margin-top: 10px;
+    }
+}*/
 .pokemon-card {
     display: inline-block;
     width: 200px;
@@ -16,8 +66,8 @@ body {
     text-align: center;
     transition: transform 0.3s;
     background: linear-gradient(to bottom, #f6d365, #fda085);
-    /* background: linear-gradient(to bottom, #ffffff, #f8f8f8); */
-}
+     /* background: linear-gradient(to bottom, #ffffff, #f8f8f8);  */
+} 
 h1{
     text-align: center;
     color: #ffffff;
@@ -90,4 +140,12 @@ h1{
   border: none;
   transition: background-color 0.3s;
   cursor: pointer;
+}
+#remove{
+    background-color:#282a36;
+    color: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
 }
