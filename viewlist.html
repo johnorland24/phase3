@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pokemon Images</title>
+    <script>
+        async function fetchPokemonList() {
+            try {
+                const response = await fetch('https://pokeapi.co/api/v2/pokemon?limit=300');
+                if (!response.ok) {
+                    throw new Error('Network response was not ok');
+                }
+                const data = await response.json();
+                const pokemonList = data.results;
+                const pokemonContainer = document.getElementById('pokemonContainer');
+                
+                pokemonList.forEach(async (pokemon) => {
+                    const pokemonResponse = await fetch(pokemon.url);
+                    if (!pokemonResponse.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    const pokemonData = await pokemonResponse.json();
+                    const pokemonSprite = pokemonData.sprites.front_default;
+                    const pokemonImage = document.createElement('img');
+                    pokemonImage.src = pokemonSprite;
+                    pokemonContainer.appendChild(pokemonImage);
+                });
+            } catch (error) {
+                console.error(error);
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Pokemon Images</h1>
+    <div id="pokemonContainer"></div>
+    <button onclick="fetchPokemonList()">Fetch Pokemon Images</button>
+</body>
+</html>
