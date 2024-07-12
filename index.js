@@ -89,26 +89,26 @@ document.addEventListener('DOMContentLoaded', () => {
         });
 });
 
-document.addEventListener('DOMContentLoaded', () => {
-    const loadingElement = document.createElement('div');
-    loadingElement.innerHTML = '<img src="loading.gif" alt="Loading" style="hieght:50px;width:50px;  display: block; margin-left: auto;margin-right: auto;">';
-    document.body.appendChild(loadingElement);
+// document.addEventListener('DOMContentLoaded', () => {
+//     const loadingElement = document.createElement('div');
+//     loadingElement.innerHTML = '<img src="loading.gif" alt="Loading" style="hieght:50px;width:50px;  display: block; margin-left: auto;margin-right: auto;">';
+//     document.body.appendChild(loadingElement);
     
-    const timeout = setTimeout(() => {
-        loadingElement.textContent = 'Poor network connection. Please try again later.';
-    }, 5000);
+//     const timeout = setTimeout(() => {
+//         loadingElement.textContent = 'Poor network connection. Please try again later.';
+//     }, 5000);
     
-    Promise.all([fetchData(), pokemonSprite()])
-        .then(() => {
-            clearTimeout(timeout);
-            loadingElement.remove();
-        })
-        .catch((error) => {
-            console.error(error);
-            clearTimeout(timeout);
-            loadingElement.textContent = 'An error occurred. Please try again later.';
-        });
-});
+//     Promise.all([fetchData(), pokemonSprite()])
+//         .then(() => {
+//             clearTimeout(timeout);
+//             loadingElement.remove();
+//         })
+//         .catch((error) => {
+//             console.error(error);
+//             clearTimeout(timeout);
+//             loadingElement.textContent = 'An error occurred. Please try again later.';
+//         });
+// });
 
 
 
