@@ -43,7 +43,7 @@ async function fetchPokemonList() {
         console.error(error);
     }
 }
-
+//search funtion for pokemon
 async function fetchData() {
     try {
         const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
@@ -66,6 +66,53 @@ async function fetchData() {
 document.addEventListener('DOMContentLoaded', () => {
     fetchPokemonList();
 });
+
+//loading
+document.addEventListener('DOMContentLoaded', () => {
+    const loadingElement = document.createElement('div');
+    loadingElement.innerHTML = '<img src="loading.gif" alt="Loading" style="hieght:50px;width:50px;  display: block; margin-left: auto;margin-right: auto;">';
+    document.body.appendChild(loadingElement);
+    
+    const timeout = setTimeout(() => {
+        loadingElement.textContent = 'Poor network connection. Please try again later.';
+    }, 5000);
+    
+    Promise.all([fetchData(), fetchPokemonList()])
+        .then(() => {
+            clearTimeout(timeout);
+            loadingElement.remove();
+        })
+        .catch((error) => {
+            console.error(error);
+            clearTimeout(timeout);
+            loadingElement.textContent = 'An error occurred. Please try again later.';
+        });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const loadingElement = document.createElement('div');
+    loadingElement.innerHTML = '<img src="loading.gif" alt="Loading" style="hieght:50px;width:50px;  display: block; margin-left: auto;margin-right: auto;">';
+    document.body.appendChild(loadingElement);
+    
+    const timeout = setTimeout(() => {
+        loadingElement.textContent = 'Poor network connection. Please try again later.';
+    }, 5000);
+    
+    Promise.all([fetchData(), pokemonSprite()])
+        .then(() => {
+            clearTimeout(timeout);
+            loadingElement.remove();
+        })
+        .catch((error) => {
+            console.error(error);
+            clearTimeout(timeout);
+            loadingElement.textContent = 'An error occurred. Please try again later.';
+        });
+});
+
+
+
+
 // function fetchData() {
 //     // const pokemonName = document.getElementById("pokemonName").value.toLowerCase();
 //     const pokemonSprite = document.getElementById("pokemonSprite");
